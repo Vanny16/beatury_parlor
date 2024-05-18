@@ -1,0 +1,136 @@
+
+*,html{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    margin: auto;
+    padding: 0;
+}
+
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width:40%;
+    height: 55%;
+    padding: 20px;
+    border: thin solid rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.msg{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+    height: auto;
+    background: #25D366;
+    color: #FFF;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.msg p{
+    text-align: center;
+    font-size: 15px;
+}
+
+#progressbar {
+    width: auto;
+    margin-bottom: auto;
+    overflow: auto;
+    color: #F57D00;
+    margin-left: 65px;
+}
+
+#progressbar .active {
+    color: #CD201F;
+    font-weight: 900;
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 15px;
+    width: 25%;
+    float: left;
+    position: relative;
+    font-weight: 400
+}
+
+#progressbar #account:before {
+    content: "1"
+}
+
+#progressbar #personal:before {
+    content: "2"
+}
+
+#progressbar #contact:before {
+    content: "3"
+}
+
+#progressbar li:before {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    display: block;
+    font-size: 20px;
+    color: #ffffff;
+    background: #F57D00;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px;
+    text-align: center;
+}
+
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #F57D00;
+    position: absolute;
+    left: -50%;
+    top: 15px;
+    z-index: -1
+}
+
+#progressbar li:first-child:after {
+	content: none;
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: #CD201F;
+    font-weight: 900;
+}
+
+.tab{
+    display: none;
+}
+
+input {
+    padding: 10px;
+    width: 95%;
+    font-size: 17px;
+    outline: none;
+    border: thin solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+input.invalid {
+   background: #ffdddd;
+}
+
+button {
+    background: #CD201F;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 17px;
+    cursor: pointer;
+  }

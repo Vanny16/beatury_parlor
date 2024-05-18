@@ -1,0 +1,61 @@
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top ">
+    <div class="container-fluid">
+
+        <div class="row justify-content-center">
+            <div class="col-xl-9 d-flex align-items-center justify-content-lg-between">
+                <a href="index.php" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+
+                <nav id="navbar" class="navbar order-last order-lg-0">
+                    <ul>
+                        <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                        <li><a class="nav-link scrollto" href="#about">About</a></li>
+                        <li><a class="nav-link scrollto" href="#services">Services</a></li>
+                        <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+
+                        <?php $ID = $_SESSION['bpmsuid'];
+                        if (strlen($ID == 0)) { ?>
+                            <a href="login.php" class="get-started-btn scrollto">LOGIN</a><?php } ?>
+                        <?php if (strlen($ID > 0)) {
+                            $ret = mysqli_query($con, "SELECT * from tblcustomers where CustID =$ID");
+                            while ($row = mysqli_fetch_array($ret)) { ?>
+
+                                <li class="nav-item dropdown pe-3">
+
+                                    <a class=" nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                                        <?php if (isset($row['ProfilePic'])) { ?>
+                                            <img src="profilepics/<?php echo $row['ProfilePic']; ?>" style="max-height: 40px;" alt="Profile" class="rounded-circle">
+                                        <?php
+                                        } else { ?>
+                                            <img src="profilepics/default-avatar.png" style="max-height: 40px;" alt="Profile" class="rounded-circle">
+                                        <?php } ?>
+                                        <span class="d-none d-md-block dropdown-toggle ps-2"></span>
+                                    </a><!-- End Profile Iamge Icon -->
+
+                                    <div class="dropdown-menu align-items-center" aria-labelledby="dropdownMenuButton">
+                                        <h6 class="dropdown-header"><?php echo $row['FirstName']; ?> <?php echo $row['LastName']; ?></h6>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="users-profile.php"><span class="bi bi-person"></span>
+                                            <span>My Profile</span></a>
+                                        <a class="dropdown-item scrollto" href="users-profile.php"><span class="bi bi-calendar-week"></span>
+                                            <span>Appointments</span></a>
+                                        <a class="dropdown-item" href="logout.php"><span class="bi bi-box-arrow-in-left"></span>
+                                            <span>Sign Out</span></a>
+                                    </div>
+
+                            <?php }
+                        } ?>
+
+                                </li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+
+
+
+
+                </nav><!-- .navbar -->
+            </div>
+        </div>
+
+    </div>
+</header><!-- End Header -->
